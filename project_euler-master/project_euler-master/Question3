@@ -1,0 +1,21 @@
+n = int(input("Number: "))
+Factorization = []
+Answer = []
+
+
+# Prime_number_function(k): k가 소수인지 판별
+def Prime_number_function(k):
+    if k <= 1:
+        return False
+    for v in range(2,k):
+        if k % v == 0:
+            return False
+    else:
+        return k
+
+for w in range(1,100000):
+    if n % w == 0:
+        Answer.append(Prime_number_function(w))
+
+
+print(max(Answer))

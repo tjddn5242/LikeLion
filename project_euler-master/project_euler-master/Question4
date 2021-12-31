@@ -1,0 +1,23 @@
+a = []
+
+def symmetry_number(a):
+    b = str(a)
+    if len(b) % 2 == 0:
+        c = b[:len(b)//2]        
+        d = b[:len(b)//2-1:-1]
+        if c == d:
+            return True
+    else:
+        c = b[:len(b)//2]
+        d = b[:len(b)//2:-1]        
+        if c == d:
+            return True
+
+for v in range(100,1000):
+    for w in range(100,1000):
+        x = v * w
+        if symmetry_number(x) == True:
+            a.append(x)
+
+
+print(max(a))

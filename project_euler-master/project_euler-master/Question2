@@ -1,0 +1,27 @@
+a = 1
+b = 2
+c = a + b
+
+Fibonacci_sequence = [a, b, c]
+
+answer_sequence = []
+
+for v in Fibonacci_sequence:
+    a = b
+    b = c
+    c = a + b
+    Fibonacci_sequence.append(c)
+    if c > 4000000:
+        Fibonacci_sequence.remove(c)
+        for i in Fibonacci_sequence:
+            if i % 2 == 0:
+                answer_sequence.append(i)
+                answer = sum(answer_sequence)
+                
+        break
+
+print("Fibonacci sequence:")
+print(Fibonacci_sequence)
+print("answer sequence:")
+print(answer_sequence)
+print("answer:", answer)

@@ -1,0 +1,40 @@
+a = []
+b = []
+
+# 소수인지
+def Prime_number_function(k):
+    if k <= 1:
+        return False
+    for v in range(2,k):
+        if k % v == 0:
+            return False
+    else:
+        return True
+
+# 소수의 가장 높은 제곱 수
+def best(a):
+    k = []
+    for v in range(1,5):
+        x = a ** v
+        if x < 20:
+            k.append(x)
+    return max(k)
+
+# 1 ~ 20 소수 찾아서 a에 넣기
+for v in range(1,21):
+    if Prime_number_function(v):
+        a.append(v)
+
+# 소수의 가장 높은 제곱 수 
+for v in a:
+    b.append(best(v))
+
+print(a)
+print(b)
+
+answer = 1
+
+for v in b:
+    answer *= v
+
+print(answer)

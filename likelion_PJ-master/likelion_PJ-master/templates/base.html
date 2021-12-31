@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{% static 'admin/css/base.css' %}" /> -->
+    <title>{% block title %}My Site{% endblock %}</title>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzprstrBJEqIJnw-zIplV43Smke2Gn0Es&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      (function(exports) {
+        "use strict";
+
+        function initMap() {
+          exports.map = new google.maps.Map(document.getElementById("map"), {
+            center: {
+              lat: 37.2604216,
+              lng: 127.0296656
+            },
+            zoom: 20
+          });
+        }
+
+        exports.initMap = initMap;
+      })((this.window = this.window || {}));
+    </script>
+  </head>
+
+  <body>
+    <div id="sidebar">
+      {% block sidebar %}
+      <ul>
+        <li><a href="{% url 'api:map' %}">1</a></li>
+        <li><a href="{% url 'api:map2' %}">2</a></li>
+      </ul>
+      {% endblock %}
+      <br />
+    </div>
+
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>
